@@ -5,6 +5,7 @@ import { selectors } from './store/actionCreators';
 import { connect } from 'react-redux';
 import PrivateRoutes from './utilities/routes/PrivateRoutes';
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App({permit}) {

@@ -7,7 +7,7 @@ import Routers from '..'
 const PrivateRoutes = ({permit}) => {  
   return (
    <>
-      <Logout>
+       <Logout>
          <Routers permit={permit}/>
          <Outlet/>
        </Logout>
