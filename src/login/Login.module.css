@@ -1,0 +1,15 @@
+.rowcss{
+    margin-top: 20%;
+}
+.rightPanel{
+
+  padding: 1.5rem 1rem; /* top-bottom 24px, left-right 16px */
+  max-width: 400px;
+  width: 100%;
+  margin: 50px auto;
+}
+
+.LoginCss + InputField{
+  width: 100%;
+  padding: 10px;
+}

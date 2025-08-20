@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--font-sm);
 }
 
 .App-logo {
@@ -35,4 +37,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+:root {
+  /* Font Sizes */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 20px;
+  --font-xl: 24px;
+  --font-2xl: 32px;
+  /* Colors */
+  --color-primary: #474747;
 }

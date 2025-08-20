@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { actionCreators, selectors, } from '../store/actionCreators'
 import { useNavigate } from 'react-router-dom'
+import { Button, InputField } from './form/FormFields'
 
 const Test = ({logres, Name,permit}) => {
     const dispatch = useDispatch()
@@ -15,7 +16,10 @@ const Test = ({logres, Name,permit}) => {
       },[])
 
   return (
-    <div>{Name}<button onClick={()=>{navigate('/test1')}}>nav</button></div>
+    <div>
+       <InputField type="text" label='UserName' placeholder='UserName'/>
+      
+      {Name}<Button  onClick={()=>{navigate('/test1')}}>Nav</Button></div>
   )
 }
 

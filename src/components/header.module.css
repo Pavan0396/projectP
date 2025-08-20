@@ -1,0 +1,10 @@
+.main{
+    background-color: var(--color-primary);
+    width: 100%;    
+    padding: 20px 0;
+    text-align: left;
+    justify-content: space-between
+}
+.main strong{
+    color: white;
+}
