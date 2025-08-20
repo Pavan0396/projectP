@@ -1,0 +1,128 @@
+/* Sidebar container */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #1f1f2e;
+  color: white;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* Header */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: #29293d;
+}
+
+.logo {
+  font-size: 14px;
+  margin: 0;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menu items */
+.menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: #33334d;
+}
+
+.menu-item.active {
+  background: #4c4cff;
+}
+
+.icon {
+  margin-right: 12px;
+}
+
+.sidebar.collapsed .icon {
+  margin-right: 0;
+}
+
+/* ✅ Submenu FIX */
+/* Submenu should drop below Settings */
+.submenu {
+  display: flex;
+  flex-direction: column;
+  position: relative;   /* ⬅️ keep it in flow */
+  background: #2a2a3b;  /* optional background */
+  margin-left: 0;       /* no floating to side */
+  padding-left: 40px;   /* indent submenu items */
+}
+
+.submenu-item {
+  padding: 8px 0;
+  color: #ddd;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.submenu-item:hover {
+  background: #3d3d5c;
+  border-radius: 4px;
+  padding-left: 5px;
+}
+
+.submenu-item.active {
+  background: #4c4cff;
+  color: white;
+  border-radius: 4px;
+}
+
+.submenu-container {
+  display: flex;
+  flex-direction: column;
+}
+.submenu.nested {
+  padding-left: 20px;  /* indent deeper levels */
+}
+
+.submenu-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.submenu-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.submenu-toggle .icon {
+  margin-right: 8px;
+}
+
+.arrow {
+  margin-left: auto; /* push arrow to right */
+}
