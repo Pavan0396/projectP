@@ -34,7 +34,7 @@ export const FileInput = ({ label, name, onChange, ...props }) => (
 );
 
 // Reusable Button
-export const Button = ({ children, onClick, type = 'button', className = 'btn btn-primary', ...props }) => (
+export const Button = ({ children, onClick, type = 'button', className = 'btn btn-secondary', ...props }) => (
   <button type={type} className={className} onClick={onClick} {...props}>
     {children}
   </button>

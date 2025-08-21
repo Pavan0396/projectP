@@ -27,17 +27,17 @@ const Login = () => {
       <Container fluid className="vh-100">
         <Row className="h-50">
           {/* Left Side */}
-          <Col md={6} className="left-panel text-black d-flex flex-column justify-content-center p-5">
+          <Col md={6} className="left-panel  d-flex flex-column justify-content-center p-5">
             <div>
-              <h1>Good afternoon!</h1>
-              <p className="lead">
+              <h1 className='text-gray-500 dark:text-gray-600'>Good afternoon!</h1>
+              <p className="text-gray-500 dark:text-gray-100">
                 Renewable energy is not more expensive than fossil fuel when you factor in life-cycle costs.
                 <br /><small>— Piyush Goyal</small>
               </p>
 
               <div className="mt-4">
                 <p>Find us on</p>
-                <div className="d-flex gap-3">
+                <div className="d-flex gap-3" style={{ color: 'black', backgroundColor:'black' }}>
                   <i className="bi bi-twitter fs-4"></i>
                   <i className="bi bi-linkedin fs-4"></i>
                   <i className="bi bi-envelope fs-4"></i>

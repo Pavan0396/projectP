@@ -17,9 +17,10 @@ const Test = ({logres, Name,permit}) => {
 
   return (
     <div>
-       <InputField type="text" label='UserName' placeholder='UserName'/>
-      
-      {Name}<Button  onClick={()=>{navigate('/test1')}}>Nav</Button></div>
+
+
+
+    </div>
   )
 }
 

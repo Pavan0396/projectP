@@ -7,9 +7,11 @@ import {
   FaCog,
   FaChevronDown,
   FaChevronUp,
+  FaListAlt,
+  FaChartLine,
 } from "react-icons/fa";
 import "./Sidebar.css";
-import WiseImg from "../assets/images/wise.png"
+import WiseImg from "../assets/images/wise.png";
 
 const Sidebar = ({ collapsed, toggle }) => {
   const location = useLocation();
@@ -17,8 +19,10 @@ const Sidebar = ({ collapsed, toggle }) => {
 
   const [openMenus, setOpenMenus] = useState({
     general: false,
+    technical:false,
+    commercial:false,
     addAsset: false,
-    actionplan:false,
+    actionplan: false,
     asset2: false,
   });
 
@@ -32,7 +36,10 @@ const Sidebar = ({ collapsed, toggle }) => {
   return (
     <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
       <div className="sidebar-header">
-      <span className="logo"><img src={WiseImg} width={20}/>  {collapsed ? "" : "A M P"}</span> 
+        <span className="logo">
+          {" "}
+          <img src={WiseImg} width={20} /> {collapsed ? "" : "A M P"}
+        </span>
         <button className="toggle-btn" onClick={toggle}>
           {collapsed ? "☰" : "✖"}
         </button>
@@ -46,20 +53,22 @@ const Sidebar = ({ collapsed, toggle }) => {
 
         {/* General with nested menu */}
         <div className="submenu-container">
-<div
-  className={`menu-item submenu-toggle ${isActive("/general") ? "active" : ""}`}
-  onClick={() => toggleMenu("general")}
->
-  <FaCog className="icon" />
-  {!collapsed && (
-    <div className="submenu-label">
-      <span>General</span>
-      <span className="arrow">
-        {openMenus.general ? <FaChevronUp /> : <FaChevronDown />}
-      </span>
-    </div>
-  )}
-</div>
+          <div
+            className={`menu-item submenu-toggle ${
+              isActive("/general") ? "active" : ""
+            }`}
+            onClick={() => toggleMenu("general")}
+          >
+            <FaListAlt className="icon" />
+            {!collapsed && (
+              <div className="submenu-label">
+                <span>General</span>
+                <span className="arrow">
+                  {openMenus.general ? <FaChevronUp /> : <FaChevronDown />}
+                </span>
+              </div>
+            )}
+          </div>
 
           {openMenus.general && !collapsed && (
             <div className="submenu">
@@ -70,7 +79,14 @@ const Sidebar = ({ collapsed, toggle }) => {
                 }`}
                 onClick={() => toggleMenu("addAsset")}
               >
-                Assets {openMenus.addAsset ? <FaChevronUp /> : <FaChevronDown />}
+                {!collapsed && (
+                  <div className="submenu-label">
+                    <span>Asset</span>
+                    <span className="arrow">
+                      {openMenus.addAsset ? <FaChevronUp /> : <FaChevronDown />}
+                    </span>
+                  </div>
+                )}
               </div>
               {openMenus.addAsset && (
                 <div className="submenu nested">
@@ -82,7 +98,7 @@ const Sidebar = ({ collapsed, toggle }) => {
                   >
                     AddAssets
                   </Link>
-                                    <Link
+                  <Link
                     to="/general/listasset"
                     className={`submenu-item ${
                       isActive("/general/listasset") ? "active" : ""
@@ -93,13 +109,24 @@ const Sidebar = ({ collapsed, toggle }) => {
                 </div>
               )}
               {/* Action Plan */}
-                            <div
+              <div
                 className={`submenu-item submenu-toggle ${
                   isActive("/general/actionplan") ? "active" : ""
                 }`}
                 onClick={() => toggleMenu("actionplan")}
               >
-                Action Plan {openMenus.actionplan ? <FaChevronUp /> : <FaChevronDown />}
+                {!collapsed && (
+                  <div className="submenu-label">
+                    <span>Action Plan</span>
+                    <span className="arrow">
+                      {openMenus.actionplan ? (
+                        <FaChevronUp />
+                      ) : (
+                        <FaChevronDown />
+                      )}
+                    </span>
+                  </div>
+                )}
               </div>
               {openMenus.actionplan && (
                 <div className="submenu nested">
@@ -111,7 +138,7 @@ const Sidebar = ({ collapsed, toggle }) => {
                   >
                     Add Action
                   </Link>
-                                    <Link
+                  <Link
                     to="/general/listaction"
                     className={`submenu-item ${
                       isActive("/general/listaction") ? "active" : ""
@@ -127,7 +154,6 @@ const Sidebar = ({ collapsed, toggle }) => {
                   >
                     Bulk Upload Action
                   </Link>
-                  
 
                   {/* Asset2 */}
                   {/* <div
@@ -163,13 +189,126 @@ const Sidebar = ({ collapsed, toggle }) => {
         </div>
 
         {/* Technical */}
-        <Link
-          to="/technical"
-          className={`menu-item ${isActive("/technical") ? "active" : ""}`}
-        >
-          <FaChartBar className="icon" />
-          {!collapsed && <span>Technical</span>}
-        </Link>
+        <div className="submenu-container">
+          <div
+            className={`menu-item submenu-toggle ${
+              isActive("/technical") ? "active" : ""
+            }`}
+            onClick={() => toggleMenu("technical")}
+          >
+            <FaChartLine className="icon" />
+            {!collapsed && (
+              <div className="submenu-label">
+                <span>Technical</span>
+                <span className="arrow">
+                  {openMenus.general ? <FaChevronUp /> : <FaChevronDown />}
+                </span>
+              </div>
+            )}
+          </div>
+
+          {openMenus.general && !collapsed && (
+            <div className="submenu">
+              {/* AddAsset */}
+              <div
+                className={`menu-item submenu-toggle ${
+                  isActive("/general/asset") ? "active" : ""
+                }`}
+                onClick={() => toggleMenu("addAsset")}
+              >
+                {!collapsed && (
+                  <div className="submenu-label">
+                    <span>Asset</span>
+                    <span className="arrow">
+                      {openMenus.addAsset ? <FaChevronUp /> : <FaChevronDown />}
+                    </span>
+                  </div>
+                )}
+              </div>
+              {openMenus.addAsset && (
+                <div className="submenu nested">
+                  <Link
+                    to="/general/addasset"
+                    className={`submenu-item ${
+                      isActive("/general/addasset") ? "active" : ""
+                    }`}
+                  >
+                    AddAssets
+                  </Link>
+                  <Link
+                    to="/general/listasset"
+                    className={`submenu-item ${
+                      isActive("/general/listasset") ? "active" : ""
+                    }`}
+                  >
+                    List Assets
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Commercial */}
+        <div className="submenu-container">
+          <div
+            className={`menu-item submenu-toggle ${
+              isActive("/commercial") ? "active" : ""
+            }`}
+            onClick={() => toggleMenu("commercial")}
+          >
+            <FaChartLine className="icon" />
+            {!collapsed && (
+              <div className="submenu-label">
+                <span>Commercial</span>
+                <span className="arrow">
+                  {openMenus.general ? <FaChevronUp /> : <FaChevronDown />}
+                </span>
+              </div>
+            )}
+          </div>
+
+          {openMenus.general && !collapsed && (
+            <div className="submenu">
+              {/* AddAsset */}
+              <div
+                className={`menu-item submenu-toggle ${
+                  isActive("/general/asset") ? "active" : ""
+                }`}
+                onClick={() => toggleMenu("addAsset")}
+              >
+                {!collapsed && (
+                  <div className="submenu-label">
+                    <span>Asset</span>
+                    <span className="arrow">
+                      {openMenus.addAsset ? <FaChevronUp /> : <FaChevronDown />}
+                    </span>
+                  </div>
+                )}
+              </div>
+              {openMenus.addAsset && (
+                <div className="submenu nested">
+                  <Link
+                    to="/general/addasset"
+                    className={`submenu-item ${
+                      isActive("/general/addasset") ? "active" : ""
+                    }`}
+                  >
+                    AddAssets
+                  </Link>
+                  <Link
+                    to="/general/listasset"
+                    className={`submenu-item ${
+                      isActive("/general/listasset") ? "active" : ""
+                    }`}
+                  >
+                    List Assets
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </nav>
     </div>
   );
